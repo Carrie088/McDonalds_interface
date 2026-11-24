@@ -57,6 +57,13 @@ export default function Menu({ t, lang, go, count, subtotal, addToCart, ...rest 
     setTimeout(() => setToast(null), 2200);
   };
 
+  // „Chcesz fakturę?” — informacja zamiast martwego przycisku
+  const showInvoiceInfo = () => {
+    setToast({ key: Date.now(), text: `🧾 ${t('invoiceInfo')}`, info: true });
+    setTimeout(() => setToast(null), 3500);
+    say(t('invoiceInfo'));
+  };
+
   const list = products.filter((p) => p.cat === cat);
   const catObj = categories.find((c) => c.id === cat);
 
@@ -66,7 +73,7 @@ export default function Menu({ t, lang, go, count, subtotal, addToCart, ...rest 
         <div className="side-logo"><Logo size={90} /></div>
         <div className="side-group">
           <SideItem log="kategoria_home" active={cat === 'home'} onClick={() => setCat('home')} emoji="📋" label={t('mainMenu')} bold />
-          <SideItem log="faktura" emoji="🧾" label={t('invoice')} />
+          <SideItem log="faktura" emoji="🧾" label={t('invoice')} onClick={showInvoiceInfo} />
         </div>
         <div className="side-group scroll">
           {categories.map((c) => (
@@ -216,7 +223,7 @@ export default function Menu({ t, lang, go, count, subtotal, addToCart, ...rest 
             exit={{ y: -80, opacity: 0, x: '-50%' }}
             transition={{ type: 'spring', stiffness: 300, damping: 24 }}
           >
-            ✓ {t('added')}: <b>{toast.text}</b>
+            {toast.info ? toast.text : <>✓ {t('added')}: <b>{toast.text}</b></>}
           </motion.div>
         )}
       </AnimatePresence>

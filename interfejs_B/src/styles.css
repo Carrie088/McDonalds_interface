@@ -453,6 +453,10 @@ button:disabled { cursor: default; }
 
 /* ---------- B: domyślny wygląd (prawie bez zmian: kontrast tekstu ≥ 7:1, cele dotyku ≥ 44 px) ---------- */
 .ver-b { --muted: #555; }
+/* B: kontrast ≥ 4,5:1 także bez trybu wysokiego kontrastu (WCAG 1.4.3) */
+.ver-b .promo-text span { opacity: 1; }
+.ver-b .copyright { color: var(--muted); }
+.ver-b .btn-yellow[aria-disabled='true'] { background: #efe9d8; color: #5e5847; border: 2px dashed #8a8370; }
 .ver-b .screen { transition: top 0.35s ease; }
 .ver-b .btn-outline { color: var(--ink); }
 .ver-b .btn-outline.xs { min-height: 56px; font-size: 18px; padding: 10px 18px; }

@@ -56,6 +56,9 @@ export default function App() {
   const idleTimer = useRef();
 
   const t = useMemo(() => translate(lang), [lang]);
+
+  // Język strony = język kiosku (czytniki ekranu, WCAG 3.1.1)
+  useEffect(() => { document.documentElement.lang = lang; }, [lang]);
   const timing = opts.moreTime ? 'B+' : 'B';
 
   const go = useCallback(

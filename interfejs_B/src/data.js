@@ -1,3 +1,4 @@
+// Wersja B: kolory promocji dobrane do kontrastu ≥ 4,5:1 (WCAG 1.4.3).
 // Menu kiosku. Ceny w złotówkach, obrazki jako emoji (łatwo podmienić na pliki .png w polu `img`).
 
 export const categories = [
@@ -129,11 +130,11 @@ export const homeTiles = [
 ];
 
 export const promos = [
-  { productId: 'latte', title: 'Łatwo o dobry dzień z kawą', sub: 'za 5 zł', emoji: '☕', bg: 'linear-gradient(135deg,#3aa0ff,#9fd3ff)', color: '#fff' },
+  { productId: 'latte', title: 'Łatwo o dobry dzień z kawą', sub: 'za 5 zł', emoji: '☕', bg: 'linear-gradient(135deg,#0f5bb5,#1565c0)', color: '#fff' },
   { productId: 'mccrispy-h', title: 'McCrispy® Halloween', sub: 'Edycja limitowana', emoji: '🍔', bg: 'linear-gradient(135deg,#1c1111,#5a1d14)', color: '#ffb347' },
-  { productId: 'strips', title: 'McCrispy® Strips', sub: 'Nowość', emoji: '🍗', bg: 'linear-gradient(135deg,#fff3dc,#ffd98a)', color: '#d22' },
-  { productId: 'piernik', title: 'Piernikowa Latte', sub: 'Oferta limitowana', emoji: '☕', bg: 'linear-gradient(135deg,#e9b98a,#c9814a)', color: '#fff' },
-  { productId: 'veggie', title: 'McVeggie Deluxe', sub: 'Smak Maka. Bez mięsa.', emoji: '🥬', bg: 'linear-gradient(135deg,#c9e86b,#8fc23a)', color: '#1f5a1a' },
+  { productId: 'strips', title: 'McCrispy® Strips', sub: 'Nowość', emoji: '🍗', bg: 'linear-gradient(135deg,#fff3dc,#ffd98a)', color: '#b00e0a' },
+  { productId: 'piernik', title: 'Piernikowa Latte', sub: 'Oferta limitowana', emoji: '☕', bg: 'linear-gradient(135deg,#8a4f24,#6e3c18)', color: '#fff' },
+  { productId: 'veggie', title: 'McVeggie Deluxe', sub: 'Smak Maka. Bez mięsa.', emoji: '🥬', bg: 'linear-gradient(135deg,#c9e86b,#8fc23a)', color: '#16420f' },
   { productId: 'mcflurry', title: 'Wykradzione smaki', sub: 'World Menu', emoji: '🍨', bg: 'linear-gradient(135deg,#ffe36b,#ffc72c)', color: '#2a2a2a' },
 ];
 
