@@ -1,5 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { DEFAULTS, fileNameFor } from '../logger.js';
+
+// Ten projekt to wyłącznie wersja B interfejsu (wersja A jest w osobnym projekcie interfejs_A)
+const WERSJA = 'B';
 import './admin.css';
 
 // Panel prowadzącego: dane uczestnika przed uruchomieniem kiosku.
@@ -55,7 +58,7 @@ export default function AdminSetup({ onStart }) {
     return {
       interfejs: String(pick('interfejs')),
       uczestnik: normalizeCode(q.get('uczestnik') ?? stored.uczestnik ?? ''),
-      wersja: pick('wersja'),
+      wersja: WERSJA,
       kolejnosc: pick('kolejnosc'),
       scenariusz: q.get('scenariusz') ?? 'S1',
     };
@@ -103,8 +106,8 @@ export default function AdminSetup({ onStart }) {
     <div className="adm">
       <form className="adm-card" onSubmit={submit} noValidate>
         <header className="adm-head">
-          <span className="adm-badge">Panel prowadzącego</span>
-          <h1>Nowa sesja badania</h1>
+          <span className="adm-badge">Panel prowadzącego · wersja B</span>
+          <h1>Nowa sesja badania — interfejs B</h1>
           <p>Wpisz dane uczestnika. Kiosk uruchomi się po zatwierdzeniu, a od tej chwili każde dotknięcie trafia do pliku zdarzeń.</p>
         </header>
 
@@ -141,7 +144,7 @@ export default function AdminSetup({ onStart }) {
 
           <div className="adm-field">
             <span>Badana wersja</span>
-            <Segmented name="Wersja" value={form.wersja} options={['A', 'B']} onChange={set('wersja')} />
+            <div className="adm-fixed">B <small>(ten projekt uruchamia tylko wersję B)</small></div>
           </div>
 
           <div className="adm-field">
@@ -184,6 +187,7 @@ export default function AdminSetup({ onStart }) {
           <ul>
             <li><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> start scenariusza S1/S2/S3 (kiosk wraca na ekran startowy)</li>
             <li><kbd>0</kbd> przerwanie bieżącego scenariusza (sukces = 0)</li>
+            <li><kbd>T</kbd> natychmiastowe ostrzeżenie o bezczynności (test limitu czasu)</li>
             <li><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd> powrót do tego panelu (zapisuje plik)</li>
           </ul>
           <p>Bez klawiatury scenariusz startuje pierwszym dotknięciem ekranu startowego i kończy się potwierdzeniem zamówienia.</p>

@@ -75,6 +75,18 @@ export default function App() {
     return () => clearTimeout(idleTimer.current);
   }, [bump]);
 
+  // Klawisz prowadzącego T: od razu pokazuje ostrzeżenie o bezczynności (test limitu czasu)
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.ctrlKey || e.altKey || e.metaKey || e.key.toLowerCase() !== 't') return;
+      if (screen === 'attract' || screen === 'done') return;
+      clearTimeout(idleTimer.current);
+      setIdle(true);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [screen]);
+
   const addToCart = (item) => setCart((c) => [...c, { ...item, uid: crypto.randomUUID() }]);
   const replaceLine = (uid, item) => setCart((c) => c.map((i) => (i.uid === uid ? { ...item, uid } : i)));
   const updateQty = (uid, qty) =>

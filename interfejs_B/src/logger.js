@@ -14,7 +14,7 @@
 import { useEffect, useRef } from 'react';
 import { useIsPresent } from 'framer-motion';
 
-const DEFAULTS = { interfejs: '6', uczestnik: 'P01', wersja: 'A', kolejnosc: 'AB', scenariusz: 'S1' };
+const DEFAULTS = { interfejs: '6', uczestnik: 'P01', wersja: 'B' /* projekt interfejs_B */, kolejnosc: 'AB', scenariusz: 'S1' };
 
 const COLUMNS = [
   'interfejs', 'uczestnik', 'wersja', 'kolejnosc', 'scenariusz', 'czas_lokalny', 'czas_epoch_ms', 'czas_ms',

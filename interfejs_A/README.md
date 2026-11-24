@@ -1,4 +1,7 @@
-# Kiosk – interfejs zamówień (React + Vite)
+# Kiosk – interfejs A (wersja wyjściowa)
+
+Odtworzenie oryginalnego kiosku bez zmian — **wersja A** badania. Wersja B (z ulepszeniami dostępności) to osobny projekt `interfejs_B`.
+Panel prowadzącego ma wersję ustawioną na stałe na **A**, więc pliki zdarzeń zawsze mają końcówkę `_A`.
 
 Ekran 9:16 (projekt w 1080×1920, automatycznie skalowany do okna).
 
@@ -25,18 +28,19 @@ Obrazki są emoji – możesz je zamienić na zdjęcia (np. `<img>` w `Menu.jsx`
 
 ## Rejestr zdarzeń (badanie)
 Format zgodny ze słownikiem `PUN_slownik_zmiennych.csv` (plik PUN_zdarzenia):
-jeden plik na uczestnika i wersję, `zdarzenia/PUN_zdarzenia_I06_P01_A.csv`, UTF-8 z BOM, separator `;`.
+jeden plik na uczestnika, `zdarzenia/PUN_zdarzenia_I06_P01_A.csv`, UTF-8 z BOM, separator `;`.
 Scenariusze S1, S2, S3 dopisują się kolejno do tego samego pliku.
 
 Po uruchomieniu kiosku najpierw pokazuje się **panel prowadzącego**: numer interfejsu, kod uczestnika
-(P01–P99), wersja (A/B), kolejność (AB/BA) i pierwszy scenariusz. Panel pokazuje nazwę pliku, ostrzega,
+(P01–P99), kolejność (AB/BA) i pierwszy scenariusz. Panel pokazuje nazwę pliku, ostrzega,
 gdy plik tego uczestnika i wersji już istnieje (nowa sesja dopisze się na końcu), i sprawdza skalowanie systemu.
 „Uruchom kiosk” włącza pełny ekran i dopiero wtedy zaczyna się rejestrowanie.
-Pola można wypełnić z adresu, np. `?interfejs=6&uczestnik=P02&wersja=B&kolejnosc=BA`.
+Pola można wypełnić z adresu, np. `?interfejs=6&uczestnik=P02&kolejnosc=BA`.
 
 Sterowanie przez prowadzącego (klawiatura):
 - `1`, `2`, `3` – start scenariusza S1/S2/S3 (kiosk wraca na ekran startowy),
 - `0` – przerwanie bieżącego scenariusza (`scenariusz_koniec`, sukces = 0),
+- `T` – natychmiastowe ostrzeżenie o bezczynności (test limitu czasu),
 - `Ctrl` + `Shift` + `A` – powrót do panelu prowadzącego (zapisuje plik).
 
 Bez klawiatury scenariusz startuje pierwszym dotknięciem ekranu startowego (kolejny numer),
